@@ -1,0 +1,4 @@
+* Fri Feb 08 2013 Patrick McCarty <patrick.mccarty@linux.intel.com> upstream/4.87@e3ed030
+- Add packaging
+- Add the upstream2downstream.sh script
+- Imported Upstream version 4.87
