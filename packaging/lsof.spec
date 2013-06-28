@@ -9,6 +9,7 @@ Group:          Base/Tools
 # upstream2downstream.sh script to remove the code before shipping it.
 Source0:        %{name}_%{version}-linux-only.tar.xz
 Source1:        upstream2downstream.sh
+Source1001: 	lsof.manifest
 
 %description
 Lsof stands for LiSt Open Files, and it does just that: it lists
@@ -17,6 +18,7 @@ UNIX system.
 
 %prep
 %setup -q -n %{name}_%{version}-linux-only
+cp %{SOURCE1001} .
 
 %build
 LSOF_VSTR=2.6.16 LINUX_BASE=/proc ./Configure -n linux
@@ -31,4 +33,5 @@ install -Dm644 lsof.8 %{buildroot}%{_mandir}/man8/lsof.8
 %docs_package
 
 %files
+%manifest %{name}.manifest
 %{_sbindir}/lsof
